@@ -1,0 +1,713 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>ICFAI University Sikkim</title>
+    <meta
+      name="description"
+      content="ICFAI University Sikkim - Quality education, global learning, and student-centered growth."
+    />
+    <style>
+      :root {
+        --primary: #0b3d91;
+        --primary-dark: #072b63;
+        --accent: #f5c542;
+        --bg: #f4f7fb;
+        --text: #1d2a39;
+        --muted: #57657a;
+        --white: #ffffff;
+        --light: #eaf0f9;
+        --shadow: 0 12px 28px rgba(11, 61, 145, 0.12);
+      }
+
+      * { box-sizing: border-box; }
+      html { scroll-behavior: smooth; }
+      body {
+        margin: 0;
+        font-family: Arial, Helvetica, sans-serif;
+        background: var(--bg);
+        color: var(--text);
+        line-height: 1.6;
+      }
+
+      a { text-decoration: none; color: inherit; }
+      img { max-width: 100%; display: block; }
+
+      .container {
+        width: min(1120px, calc(100% - 32px));
+        margin: 0 auto;
+      }
+
+      .topbar {
+        background: var(--primary-dark);
+        color: var(--white);
+        font-size: 0.9rem;
+      }
+      .topbar-inner {
+        display: flex;
+        justify-content: space-between;
+        gap: 16px;
+        padding: 10px 0;
+        flex-wrap: wrap;
+      }
+      .topbar-links {
+        display: flex;
+        gap: 18px;
+        flex-wrap: wrap;
+      }
+
+      header {
+        background: rgba(255,255,255,0.95);
+        position: sticky;
+        top: 0;
+        z-index: 1000;
+        backdrop-filter: blur(8px);
+        border-bottom: 1px solid rgba(11, 61, 145, 0.08);
+      }
+      .nav {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        padding: 18px 0;
+        gap: 20px;
+      }
+      .brand {
+        display: flex;
+        align-items: center;
+        gap: 12px;
+      }
+      .logo {
+        width: 48px;
+        height: 48px;
+        display: grid;
+        place-items: center;
+        border-radius: 12px;
+        background: linear-gradient(135deg, var(--primary), #174bb4);
+        color: var(--white);
+        font-weight: bold;
+        font-size: 1.2rem;
+      }
+      .brand-text {
+        font-weight: 700;
+        color: var(--primary);
+        line-height: 1.2;
+      }
+      .brand-text small {
+        display: block;
+        font-size: 0.74rem;
+        color: var(--muted);
+        font-weight: 500;
+      }
+      .nav-links {
+        display: flex;
+        align-items: center;
+        gap: 20px;
+        flex-wrap: wrap;
+        color: var(--text);
+      }
+      .nav-links a {
+        font-weight: 600;
+        color: var(--text);
+      }
+      .nav-links a:hover { color: var(--primary); }
+      .cta {
+        background: var(--accent);
+        color: #1a1a1a;
+        padding: 12px 18px;
+        border-radius: 30px;
+        font-weight: 700;
+        box-shadow: var(--shadow);
+      }
+
+      .hero {
+        background: linear-gradient(135deg, rgba(11,61,145,0.93), rgba(25,93,197,0.82)),
+          url('https://images.unsplash.com/photo-1523050854058-8df90110c9f1?auto=format&fit=crop&w=1600&q=80') center/cover no-repeat;
+        color: var(--white);
+        min-height: 620px;
+        display: flex;
+        align-items: center;
+      }
+      .hero-inner {
+        display: grid;
+        grid-template-columns: 1.3fr 0.7fr;
+        gap: 28px;
+        align-items: center;
+        padding: 64px 0;
+      }
+      .hero h1 {
+        margin: 0 0 16px;
+        font-size: clamp(2.4rem, 5vw, 4.2rem);
+        line-height: 1.1;
+      }
+      .hero p {
+        margin: 0 0 28px;
+        font-size: 1.05rem;
+        color: rgba(255,255,255,0.88);
+        max-width: 620px;
+      }
+      .hero-actions {
+        display: flex;
+        gap: 16px;
+        flex-wrap: wrap;
+      }
+      .btn {
+        display: inline-block;
+        padding: 14px 22px;
+        border-radius: 30px;
+        font-weight: 700;
+        border: 0;
+        cursor: pointer;
+      }
+      .btn-primary {
+        background: var(--accent);
+        color: #1d2a39;
+      }
+      .btn-secondary {
+        background: rgba(255,255,255,0.12);
+        color: var(--white);
+        border: 1px solid rgba(255,255,255,0.25);
+      }
+
+      .hero-card {
+        background: rgba(255,255,255,0.12);
+        border: 1px solid rgba(255,255,255,0.2);
+        backdrop-filter: blur(8px);
+        border-radius: 22px;
+        padding: 28px;
+        box-shadow: var(--shadow);
+      }
+      .hero-card h3 {
+        margin-top: 0;
+        font-size: 1.5rem;
+      }
+      .stats {
+        display: grid;
+        grid-template-columns: repeat(2, minmax(120px, 1fr));
+        gap: 18px;
+        margin-top: 20px;
+      }
+      .stat-box {
+        background: rgba(255,255,255,0.08);
+        border-radius: 16px;
+        padding: 18px 14px;
+        text-align: center;
+      }
+      .stat-box strong {
+        display: block;
+        font-size: 1.8rem;
+        margin-bottom: 6px;
+      }
+
+      section {
+        padding: 84px 0;
+      }
+      .section-title {
+        text-align: center;
+        margin-bottom: 44px;
+      }
+      .section-title h2 {
+        margin: 0 0 10px;
+        color: var(--primary);
+        font-size: clamp(2rem, 4vw, 3rem);
+      }
+      .section-title p {
+        max-width: 760px;
+        margin: 0 auto;
+        color: var(--muted);
+      }
+
+      .about-grid {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 36px;
+        align-items: center;
+      }
+      .about-card {
+        background: var(--white);
+        border-radius: 22px;
+        padding: 28px;
+        box-shadow: var(--shadow);
+      }
+      .about-card ul {
+        list-style: none;
+        padding: 0;
+        margin: 22px 0 0;
+      }
+      .about-card li {
+        position: relative;
+        padding-left: 28px;
+        margin-bottom: 12px;
+        color: var(--muted);
+      }
+      .about-card li::before {
+        content: "•";
+        position: absolute;
+        left: 0;
+        color: var(--primary);
+        font-size: 1.7rem;
+        line-height: 1;
+      }
+      .feature-grid,
+      .program-grid,
+      .campus-grid,
+      .testimonial-grid {
+        display: grid;
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+        gap: 24px;
+      }
+      .feature-card,
+      .program-card,
+      .campus-card,
+      .testimonial-card {
+        background: var(--white);
+        border-radius: 20px;
+        box-shadow: var(--shadow);
+        overflow: hidden;
+      }
+      .feature-card {
+        padding: 28px 22px;
+      }
+      .icon {
+        width: 52px;
+        height: 52px;
+        border-radius: 14px;
+        background: var(--light);
+        color: var(--primary);
+        display: grid;
+        place-items: center;
+        font-size: 1.6rem;
+        margin-bottom: 16px;
+        font-weight: bold;
+      }
+      .feature-card h3,
+      .program-card h3,
+      .campus-card h3 {
+        margin: 0 0 12px;
+        color: var(--primary-dark);
+      }
+      .feature-card p,
+      .program-card p,
+      .campus-card p,
+      .testimonial-card p {
+        margin: 0;
+        color: var(--muted);
+      }
+
+      .program-card {
+        padding: 0;
+      }
+      .program-image {
+        height: 180px;
+        background-size: cover;
+        background-position: center;
+      }
+      .program-body {
+        padding: 24px 20px 26px;
+      }
+
+      .campus-card {
+        overflow: hidden;
+      }
+      .campus-image {
+        height: 220px;
+        background-size: cover;
+        background-position: center;
+      }
+      .campus-body {
+        padding: 22px 20px 26px;
+      }
+      .testimonial-card {
+        padding: 26px 22px;
+      }
+      .rating {
+        color: #f5b700;
+        letter-spacing: 0.12em;
+        margin-bottom: 14px;
+      }
+      .person {
+        margin-top: 18px;
+        font-weight: 700;
+        color: var(--primary-dark);
+      }
+
+      .cta-banner {
+        background: linear-gradient(135deg, var(--primary), var(--primary-dark));
+        color: var(--white);
+        border-radius: 24px;
+        padding: 36px 30px;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        gap: 20px;
+        box-shadow: var(--shadow);
+      }
+
+      .contact-grid {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 28px;
+      }
+      .contact-box,
+      .contact-form {
+        background: var(--white);
+        padding: 28px;
+        border-radius: 20px;
+        box-shadow: var(--shadow);
+      }
+      .contact-box p,
+      .contact-box li {
+        color: var(--muted);
+      }
+      .contact-box ul {
+        list-style: none;
+        padding: 0;
+        margin: 18px 0 0;
+      }
+      .contact-box li + li { margin-top: 12px; }
+      form {
+        display: grid;
+        gap: 14px;
+      }
+      input, textarea {
+        width: 100%;
+        padding: 14px 16px;
+        border-radius: 12px;
+        border: 1px solid #dbe4f1;
+        font-size: 1rem;
+        font-family: inherit;
+      }
+      textarea { min-height: 140px; resize: vertical; }
+
+      footer {
+        background: var(--primary-dark);
+        color: var(--white);
+        padding: 28px 0;
+      }
+      .footer-inner {
+        display: flex;
+        justify-content: space-between;
+        gap: 20px;
+        flex-wrap: wrap;
+      }
+
+      @media (max-width: 900px) {
+        .hero-inner,
+        .about-grid,
+        .contact-grid,
+        .feature-grid,
+        .program-grid,
+        .campus-grid,
+        .testimonial-grid {
+          grid-template-columns: 1fr;
+        }
+        .nav {
+          flex-wrap: wrap;
+        }
+        .nav-links {
+          width: 100%;
+          justify-content: center;
+        }
+        .cta-banner {
+          flex-direction: column;
+          align-items: flex-start;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="topbar">
+      <div class="container topbar-inner">
+        <span>Admissions Open 2026 | Apply Now</span>
+        <div class="topbar-links">
+          <a href="#about">About</a>
+          <a href="#programs">Programs</a>
+          <a href="#campus">Campus</a>
+          <a href="#contact">Contact</a>
+        </div>
+      </div>
+    </div>
+
+    <header>
+      <div class="container nav">
+        <div class="brand">
+          <div class="logo">IU</div>
+          <div class="brand-text">
+            ICFAI University<br />
+            <small>Sikkim</small>
+          </div>
+        </div>
+
+        <nav class="nav-links" aria-label="Main navigation">
+          <a href="#about">About</a>
+          <a href="#features">Why Choose Us</a>
+          <a href="#programs">Programs</a>
+          <a href="#campus">Campus Life</a>
+          <a href="#contact">Contact</a>
+          <a class="cta" href="#contact">Apply Now</a>
+        </nav>
+      </div>
+    </header>
+
+    <main>
+      <section class="hero">
+        <div class="container hero-inner">
+          <div>
+            <h1>Inspire. Innovate. Lead.</h1>
+            <p>
+              ICFAI University Sikkim offers a transformative education experience that combines
+              academic excellence, practical learning, industry exposure, and holistic student
+              development.
+            </p>
+            <div class="hero-actions">
+              <a class="btn btn-primary" href="#programs">Explore Programs</a>
+              <a class="btn btn-secondary" href="#about">Learn More</a>
+            </div>
+          </div>
+
+          <div class="hero-card">
+            <h3>Quick Highlights</h3>
+            <div class="stats">
+              <div class="stat-box">
+                <strong>25+</strong>
+                <span>Academic Programs</span>
+              </div>
+              <div class="stat-box">
+                <strong>15K+</strong>
+                <span>Students</span>
+              </div>
+              <div class="stat-box">
+                <strong>150+</strong>
+                <span>Faculty Members</span>
+              </div>
+              <div class="stat-box">
+                <strong>90%</strong>
+                <span>Placement Support</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section id="about">
+        <div class="container">
+          <div class="section-title">
+            <h2>About the University</h2>
+            <p>
+              ICFAI University Sikkim nurtures graduates with world-class knowledge, practical skills,
+              and ethical values prepared for dynamic careers in a global landscape.
+            </p>
+          </div>
+
+          <div class="about-grid">
+            <div class="about-card">
+              <h3>Building Futures Through Education</h3>
+              <p>
+                We focus on creativity, innovation, and leadership while encouraging students to learn
+                through inquiry, collaboration, and real-world experiences. Our programs are designed
+                to align with industry needs and future opportunities.
+              </p>
+              <ul>
+                <li>Industry-relevant curriculum and student-centric learning</li>
+                <li>Research excellence and entrepreneurship support</li>
+                <li>Strong internship, placement, and career mentoring</li>
+                <li>Vibrant campus life and value-based education</li>
+              </ul>
+            </div>
+
+            <div class="about-card">
+              <h3>Our Vision</h3>
+              <p>
+                To be a leading institution in the eastern Himalayan region that creates knowledge,
+                develops leaders, and contributes to national and global progress through quality
+                higher education.
+              </p>
+              <h3 style="margin-top: 24px;">Our Mission</h3>
+              <p>
+                To provide accessible, relevant, and innovative education that empowers students to
+                thrive academically, professionally, and socially.
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section id="features">
+        <div class="container">
+          <div class="section-title">
+            <h2>Why Students Choose ICFAI University Sikkim</h2>
+            <p>
+              A student-first learning ecosystem designed to prepare you for a successful future.
+            </p>
+          </div>
+
+          <div class="feature-grid">
+            <div class="feature-card">
+              <div class="icon">01</div>
+              <h3>Academic Excellence</h3>
+              <p>Highly qualified faculty and a strong academic framework that encourages deep learning.</p>
+            </div>
+            <div class="feature-card">
+              <div class="icon">02</div>
+              <h3>Industry Exposure</h3>
+              <p>Practical learning, workshops, internships, and mentoring to bridge theory and practice.</p>
+            </div>
+            <div class="feature-card">
+              <div class="icon">03</div>
+              <h3>Holistic Development</h3>
+              <p>Focus on leadership, innovation, personality building, and social responsibility.</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section id="programs">
+        <div class="container">
+          <div class="section-title">
+            <h2>Popular Programs</h2>
+            <p>Explore courses designed for careers, growth, and impact in the modern world.</p>
+          </div>
+
+          <div class="program-grid">
+            <article class="program-card">
+              <div class="program-image" style="background-image:url('https://images.unsplash.com/photo-1522202176988-66273c2fd55f?auto=format&fit=crop&w=900&q=80');"></div>
+              <div class="program-body">
+                <h3>B.Tech</h3>
+                <p>Engineering programs with practical exposure, innovation labs, and experienced faculty.</p>
+              </div>
+            </article>
+
+            <article class="program-card">
+              <div class="program-image" style="background-image:url('https://images.unsplash.com/photo-1552664730-d307ca884978?auto=format&fit=crop&w=900&q=80');"></div>
+              <div class="program-body">
+                <h3>BBA & MBA</h3>
+                <p>Business-focused education emphasizing leadership, strategy, entrepreneurship, and management.</p>
+              </div>
+            </article>
+
+            <article class="program-card">
+              <div class="program-image" style="background-image:url('https://images.unsplash.com/photo-1523240795612-9a054b0db644?auto=format&fit=crop&w=900&q=80');"></div>
+              <div class="program-body">
+                <h3>B.Sc & M.Sc</h3>
+                <p>Scientific and research-driven programs that build analytical thinking and innovation.</p>
+              </div>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <section id="campus">
+        <div class="container">
+          <div class="section-title">
+            <h2>Campus Life</h2>
+            <p>A vibrant campus experience where students learn, collaborate, discover, and grow.</p>
+          </div>
+
+          <div class="campus-grid">
+            <article class="campus-card">
+              <div class="campus-image" style="background-image:url('https://images.unsplash.com/photo-1524995997946-a1c2e315a42f?auto=format&fit=crop&w=900&q=80');"></div>
+              <div class="campus-body">
+                <h3>Modern Learning Spaces</h3>
+                <p>Smart classrooms, digital labs, and collaborative spaces support an engaging academic environment.</p>
+              </div>
+            </article>
+
+            <article class="campus-card">
+              <div class="campus-image" style="background-image:url('https://images.unsplash.com/photo-1517486808906-6ca8b3f04846?auto=format&fit=crop&w=900&q=80');"></div>
+              <div class="campus-body">
+                <h3>Student Development</h3>
+                <p>Events, clubs, and extracurriculars help students build confidence, teamwork, and leadership.</p>
+              </div>
+            </article>
+
+            <article class="campus-card">
+              <div class="campus-image" style="background-image:url('https://images.unsplash.com/photo-1522202176988-66273c2fd55f?auto=format&fit=crop&w=900&q=80');"></div>
+              <div class="campus-body">
+                <h3>Career Opportunities</h3>
+                <p>Strong placement support and industry connections to help students transition successfully.</p>
+              </div>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <section>
+        <div class="container">
+          <div class="section-title">
+            <h2>Student Voices</h2>
+            <p>What our students say about their journey at ICFAI University Sikkim.</p>
+          </div>
+
+          <div class="testimonial-grid">
+            <article class="testimonial-card">
+              <div class="rating">★★★★★</div>
+              <p>“The learning environment is supportive and encourages innovation. The faculty helped me build confidence and career clarity.”</p>
+              <div class="person">Aditi Sharma</div>
+            </article>
+            <article class="testimonial-card">
+              <div class="rating">★★★★★</div>
+              <p>“ICFAI gave me opportunities to participate in projects, seminars, and internship programs that shaped my skills.”</p>
+              <div class="person">Rahul Pradhan</div>
+            </article>
+            <article class="testimonial-card">
+              <div class="rating">★★★★★</div>
+              <p>“The campus culture is vibrant and motivating. I gained both technical knowledge and leadership experience.”</p>
+              <div class="person">Meera Tamang</div>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <section id="contact">
+        <div class="container">
+          <div class="section-title">
+            <h2>Admissions & Contact</h2>
+            <p>Take the first step toward your future with ICFAI University Sikkim.</p>
+          </div>
+
+          <div class="contact-grid">
+            <div class="contact-box">
+              <h3>Contact Information</h3>
+              <ul>
+                <li><strong>Address:</strong> ICFAI University Sikkim, Sikkim, India</li>
+                <li><strong>Email:</strong> admissions@icfaiuniversitysikkim.edu.in</li>
+                <li><strong>Phone:</strong> +91 98765 43210</li>
+                <li><strong>Office Hours:</strong> Mon - Sat, 9:00 AM - 5:00 PM</li>
+              </ul>
+            </div>
+
+            <div class="contact-form">
+              <h3>Request Information</h3>
+              <form>
+                <input type="text" placeholder="Your Name" aria-label="Name" />
+                <input type="email" placeholder="Your Email" aria-label="Email" />
+                <input type="text" placeholder="Program of Interest" aria-label="Program" />
+                <textarea placeholder="Message" aria-label="Message"></textarea>
+                <button type="submit" class="btn btn-primary">Submit</button>
+              </form>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section>
+        <div class="container">
+          <div class="cta-banner">
+            <div>
+              <h2 style="margin:0 0 8px;">Ready to begin your journey?</h2>
+              <p style="margin:0; color: rgba(255,255,255,0.82);">Enroll with ICFAI University Sikkim and shape your future today.</p>
+            </div>
+            <a class="btn btn-primary" href="#contact">Apply Now</a>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer>
+      <div class="container footer-inner">
+        <div>© 2026 ICFAI University Sikkim. All rights reserved.</div>
+        <div>Education • Innovation • Leadership</div>
+      </div>
+    </footer>
+  </body>
+</html>
